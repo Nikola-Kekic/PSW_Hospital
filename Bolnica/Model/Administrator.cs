@@ -7,9 +7,9 @@ namespace Hospital.Model
 {
     public class Administrator
     {
-        private long Id { get; set; }
-        private string Email { get; set; }
-        private string Password { get; set; }
+        public long Id { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
 
     }
 }

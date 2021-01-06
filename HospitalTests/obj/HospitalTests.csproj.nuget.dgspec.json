@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nikola\\source\\repos\\Bolnica\\HospitalTests\\HospitalTests.csproj": {}
+    "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nikola\\source\\repos\\Bolnica\\Bolnica\\Hospital.csproj": {
+    "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikola\\source\\repos\\Bolnica\\Bolnica\\Hospital.csproj",
+        "projectUniqueName": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj",
         "projectName": "Hospital",
-        "projectPath": "C:\\Users\\Nikola\\source\\repos\\Bolnica\\Bolnica\\Hospital.csproj",
-        "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikola\\source\\repos\\Bolnica\\Bolnica\\obj\\",
+        "projectPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj",
+        "packagesPath": "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nikola\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dedo iz Njemačke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,6 +38,24 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "System.Net.Http": {
               "target": "Package",
               "version": "[4.3.4, )"
@@ -61,21 +79,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nikola\\source\\repos\\Bolnica\\HospitalTests\\HospitalTests.csproj": {
+    "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikola\\source\\repos\\Bolnica\\HospitalTests\\HospitalTests.csproj",
+        "projectUniqueName": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj",
         "projectName": "HospitalTests",
-        "projectPath": "C:\\Users\\Nikola\\source\\repos\\Bolnica\\HospitalTests\\HospitalTests.csproj",
-        "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikola\\source\\repos\\Bolnica\\HospitalTests\\obj\\",
+        "projectPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj",
+        "packagesPath": "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nikola\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dedo iz Njemačke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,8 +106,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Nikola\\source\\repos\\Bolnica\\Bolnica\\Hospital.csproj": {
-                "projectPath": "C:\\Users\\Nikola\\source\\repos\\Bolnica\\Bolnica\\Hospital.csproj"
+              "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj": {
+                "projectPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj"
               }
             }
           }
@@ -103,6 +121,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.5.0, )"
@@ -138,7 +160,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

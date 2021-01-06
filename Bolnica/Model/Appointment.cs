@@ -7,10 +7,10 @@ namespace Hospital.Model
 {
     public class Appointment
     {
-        private long Id { get; set; }
-        private DateTime StartTime { get; set; }
-        private Doctor Doctor { get; set; }
-        private Patient Patient { get; set; }
+        public long Id { get; set; }
+        public DateTime StartTime { get; set; }
+        public Doctor Doctor { get; set; }
+        public Patient Patient { get; set; }
 
     }
 }

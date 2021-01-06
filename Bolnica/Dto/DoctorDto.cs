@@ -1,0 +1,16 @@
+﻿using Hospital.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Hospital.Dto
+{
+    public class DoctorDto
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Specialization Specialization { get; set; }
+        public DoctorDto() { }
+    }
+}

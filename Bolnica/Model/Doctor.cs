@@ -7,10 +7,19 @@ namespace Hospital.Model
 {
     public class Doctor
     {
-        private long Id { get; set; }
-        private string FirstName { get; set; }
-        private string LastName { get; set; }
-        private Specialization Specialization { get; set; }
+        public long Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Specialization Specialization { get; set; }
 
+        public Doctor(int id, string firstName, string lastName, Specialization specialization)
+        {
+            this.Id = id;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Specialization = specialization;
+        }
+
+        public Doctor() { }
     }
 }

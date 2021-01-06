@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Hospital.Model
 {
-    enum Specialization    
+    public enum Specialization    
     {
         CARDIOLOGY, 
         ONCOLOGY, 
