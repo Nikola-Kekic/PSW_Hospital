@@ -8,7 +8,7 @@ namespace Hospital.Service
 {
     public interface IAppointmentService
     {
-        
         IEnumerable<Appointment> GetAppointmentRecommendations(AppointmentRequestDto dto);
+        bool isAppointemntInPeriod(Appointment a, DateTime start, DateTime end);
     }
 }

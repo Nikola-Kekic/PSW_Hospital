@@ -28,9 +28,9 @@ namespace Hospital.Repository
                 .FirstOrDefault();
         }
 
-        public IEnumerable<Appointment> GetFreeAppointmentsForDoctor(DateTime from, DateTime to, long doctorId)
+        public IEnumerable<Appointment> GetAppointmentsForDoctor(long doctorId)
         {
-            return FindByCondition(a => a.Doctor.Id.Equals(doctorId) && a.StartTime >= from && a.StartTime < to)
+            return FindByCondition(a => a.Doctor.Id.Equals(doctorId))
                 .OrderBy(a => a.Id)
                 .ToList();
         }

@@ -21,88 +21,112 @@ namespace HospitalTests
         /* Snake case notation necessary */
 
         private AppointmentController _appointmentController;
+        private IAppointmentService _appointmentService;
+
         private Mock<IUnitOfWork> _mockRepository;
         private Mock<IAppointmentService> _mockService;
-        public IList<Appointment> _freeAppointments { get; set; }
+
+        private static AppointmentRequestDto _appointmentRequest => new AppointmentRequestDto
+        {
+            DoctorId = 1,
+            From = DateTime.Parse("1/8/2021 8:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
+            To = DateTime.Parse("1/10/2021 2:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
+            DoctorIsPriority = true
+        };
+
+
+        private static IList<Appointment> _freeAppointments => new List<Appointment>
+        {
+            new Appointment {
+                StartTime = DateTime.Parse("1/9/2021 9:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
+                Doctor = new Doctor{ FirstName = "Marko", LastName = "Markovic", Specialization = Specialization.CARDIOLOGY, Id = 1},
+                Patient = null,
+                Id = 1
+            },
+            new Appointment {
+                StartTime = DateTime.Parse("1/12/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
+                Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 2},
+                Patient = null,
+                Id = 2
+            } 
+        };
+
+        private static IList<Appointment> _takenAppointments => new List<Appointment>
+        {
+            new Appointment {
+                StartTime = DateTime.Parse("1/10/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
+                Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 2},
+                Patient = new Patient{ FirstName = "Petar", LastName = "Peric", Id = 1},
+                Id = 3
+            }
+        };
+
+        public static IEnumerable<object[]> Data => new List<object[]>
+        {
+            new object[] { GetFreeAppointment(0), true },
+            new object[] { GetFreeAppointment(1), true },
+            new object[] { GetTakenAppointment(0), false }
+        };
+
+      
+        public static IEnumerable<object[]> DataWithDto => new List<object[]>
+        {
+            new object[] { GetFreeAppointment(0), getAppointmentRequest(), true },
+            new object[] { GetFreeAppointment(1), getAppointmentRequest(), false }
+        };
+
+        private static object getAppointmentRequest()
+        {
+            return _appointmentRequest;
+        }
+
+        private static object GetFreeAppointment(int i)
+        {
+            return _freeAppointments[i];
+        }
+        private static object GetTakenAppointment(int i)
+        {
+            return _takenAppointments[i];
+        }
 
         public AppointmentTest()
         {
-            Seed();
-
             _mockRepository = new Mock<IUnitOfWork>();
             _mockService = new Mock<IAppointmentService>();
             _appointmentController = new AppointmentController(_mockRepository.Object, _mockService.Object);
+            _appointmentService = new AppointmentService(_mockRepository.Object);
 
         }
-
-        private void Seed()
-        {
-            _freeAppointments = new List<Appointment>
-            {
-                new Appointment { 
-                    StartTime = DateTime.Parse("1/9/2021 9:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
-                    Doctor = new Doctor{ FirstName = "Marko", LastName = "Markovic", Specialization = Specialization.CARDIOLOGY, Id = 1},
-                    Patient = null,
-                    Id = 1
-                },
-                new Appointment { 
-                    StartTime = DateTime.Parse("1/8/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
-                    Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 2},
-                    Patient = null,
-                    Id = 2
-                }
-            };
-        }
-
-        public static IEnumerable<object[]> Data =>
-        new List<object[]>
-        {
-             new object[]
-             {
-                 new Appointment {
-                     StartTime = DateTime.Parse("1/9/2021 9:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
-                     Doctor = new Doctor{ FirstName = "Marko", LastName = "Markovic", Specialization = Specialization.CARDIOLOGY, Id = 1},
-                     Patient = null,
-                     Id = 1
-             }, true},
-              new object[]
-             {
-                 new Appointment {
-                    StartTime = DateTime.Parse("1/5/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
-                    Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 2},
-                    Patient = new Patient{ FirstName = "Petar", LastName = "Peric", Id = 1},
-                    Id = 3
-             }, false}
-        };
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void Checks_if_free_term(Appointment appointment, bool expected)
+        public void Checks_if_free_appointment(Appointment appointment, bool expected)
         {
             bool isFree = appointment.IsFree();
             Assert.Equal(expected, isFree);
         }
-        
+
+        [Theory]
+        [MemberData(nameof(DataWithDto))]
+        public void Checks_if_appointment_in_period(Appointment appointment, AppointmentRequestDto request, bool expected)
+        {
+            bool fits = _appointmentService.isAppointemntInPeriod(appointment, request.From, request.To);
+            Assert.Equal(expected, fits);
+        }
 
         [Fact]
         public void Checks_free_appointments_for_doctor()
         {
             // arrange
-            var appointmentRequest = new AppointmentRequestDto
-            {
-                DoctorId = 1,
-                From = DateTime.Parse("1/8/2021 8:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
-                To = DateTime.Parse("1/10/2021 2:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
-                DoctorIsPriority = true
-            };
+           
 
             // act
             _mockRepository.Setup(a => 
-                a.Appointment.GetFreeAppointmentsForDoctor(appointmentRequest.From, appointmentRequest.To, appointmentRequest.DoctorId))
+                a.Appointment.GetAppointmentsForDoctor(_appointmentRequest.DoctorId))
                 .Returns(_freeAppointments);
 
             
-            IActionResult actionResult = _appointmentController.GetAppointmentsForDoctor(appointmentRequest);
+            IActionResult actionResult = _appointmentController.GetAppointmentsForDoctor(_appointmentRequest);
             var okResult = actionResult as OkObjectResult;
             var resultList = okResult.Value;
 

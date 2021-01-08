@@ -10,7 +10,7 @@ namespace Hospital.Repository.Interfaces
     {
         IEnumerable<Appointment> GetAllAppointments();
         Appointment GetAppointmentById(long Id);
-        IEnumerable<Appointment> GetFreeAppointmentsForDoctor(DateTime from, DateTime to, long doctorId);
+        IEnumerable<Appointment> GetAppointmentsForDoctor(long doctorId);
         void DeleteAppointment(Appointment appointment);
 
     }
