@@ -8,9 +8,9 @@ namespace Hospital.Repository.Interfaces
 {
     public interface IAppointmentRepository : IRepositoryBase<Appointment>
     {
-        IEnumerable<Appointment> GetAllAppointmentsAsync();
-        Appointment GetAppointmentByIdAsync(long Id);
-        Appointment GetAppointmentWithDetailsAsync(long Id);
+        IEnumerable<Appointment> GetAllAppointments();
+        Appointment GetAppointmentById(long Id);
+        IEnumerable<Appointment> GetFreeAppointmentsForDoctor(DateTime from, DateTime to, long doctorId);
         void DeleteAppointment(Appointment appointment);
 
     }

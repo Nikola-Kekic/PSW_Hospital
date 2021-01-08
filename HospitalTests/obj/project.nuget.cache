@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/msVxrIBRlTPGksyHmMDvfIHz0zTu+8ctXDmA8PGL94rbJY6THN6YRril9Y4VDFtPlDz/H3vVF8G3zSdvEEsmA==",
+  "dgSpecHash": "OAD/mENT617JW5h8fgSiyZGsIBliQFJwW0k9eQMn1tG6ssGTDw4V/cwdOkDz2cSA5u67fNWrMH2KTDpZ3OneLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj",
+  "projectFilePath": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -36,8 +37,12 @@
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\microsoft.testplatform.testhost\\16.5.0\\microsoft.testplatform.testhost.16.5.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\moq\\4.15.2\\moq.4.15.2.nupkg.sha512",
+    "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\nmock3\\3.5.44\\nmock3.3.5.44.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
+    "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\nunit\\3.13.0\\nunit.3.13.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
@@ -66,6 +71,7 @@
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
+    "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.diagnostics.tracesource\\4.3.0\\system.diagnostics.tracesource.4.3.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.dynamic.runtime\\4.3.0\\system.dynamic.runtime.4.3.0.nupkg.sha512",
@@ -119,7 +125,7 @@
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
@@ -134,5 +140,16 @@
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\xunit.extensibility.execution\\2.4.0\\xunit.extensibility.execution.2.4.0.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.0\\xunit.runner.visualstudio.2.4.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NMock3 3.5.44' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "NMock3",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

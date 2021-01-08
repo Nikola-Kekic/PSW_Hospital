@@ -10,27 +10,29 @@ namespace Hospital.Repository
 {
     public class AppointmentRepository : Repository<Appointment>, IAppointmentRepository
     {
+        
         public AppointmentRepository(HospitalContext context) : base(context)
         {
         }
 
-        public IEnumerable<Appointment> GetAllAppointmentsAsync()
+        public IEnumerable<Appointment> GetAllAppointments()
         {
             return FindAll()
                 .OrderBy(a => a.Id)
                 .ToList();
         }
 
-        public Appointment GetAppointmentByIdAsync(long Id)
-        {
-            return FindByCondition(t => t.Id.Equals(Id))
-                .FirstOrDefault();
-        }
-
-        public Appointment GetAppointmentWithDetailsAsync(long Id)
+        public Appointment GetAppointmentById(long Id)
         {
             return FindByCondition(a => a.Id.Equals(Id))
                 .FirstOrDefault();
+        }
+
+        public IEnumerable<Appointment> GetFreeAppointmentsForDoctor(DateTime from, DateTime to, long doctorId)
+        {
+            return FindByCondition(a => a.Doctor.Id.Equals(doctorId) && a.StartTime >= from && a.StartTime < to)
+                .OrderBy(a => a.Id)
+                .ToList();
         }
 
         public void DeleteAppointment(Appointment appointment)

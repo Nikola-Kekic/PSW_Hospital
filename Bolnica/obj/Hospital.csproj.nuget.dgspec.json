@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj": {}
+    "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj": {
+    "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj",
+        "projectUniqueName": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj",
         "projectName": "Hospital",
-        "projectPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj",
+        "projectPath": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj",
         "packagesPath": "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\obj\\",
+        "outputPath": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dedo iz Njemačke\\AppData\\Roaming\\NuGet\\NuGet.Config",

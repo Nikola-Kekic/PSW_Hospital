@@ -14,22 +14,31 @@ namespace Hospital.Controller
     [ApiController]
     public class AppointmentController : ControllerBase
     {
-        private UnitOfWork _unitOfWork;
-        public AppointmentController(UnitOfWork unitOfWork)
+        private IUnitOfWork _unitOfWork;
+        public AppointmentController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
         // GET: api/Appointment
         [HttpGet]
-        public IActionResult GetAppointments()
+        public ActionResult GetAppointments()
         {
             return Ok(_unitOfWork.Appointment.FindAll());
         }
 
-        // POST: api/Appointment
+        // POST: api/Appointment/period
         [HttpPost]
-        public IActionResult GetAppointments(AppointmentRequestDto dto)
+        [Route("period")]
+        public ActionResult GetAppointmentsForPeriod(AppointmentRequestDto dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        // POST: api/Appointment/doctor
+        [HttpPost]
+        [Route("searchDoctor")]
+        public ActionResult GetAppointmentsForDoctor(AppointmentRequestDto dto)
         {
             throw new NotImplementedException();
         }

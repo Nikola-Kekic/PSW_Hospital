@@ -20,7 +20,11 @@ namespace Hospital.Context
         {
             Configuration = configuration;
         }
-     
+
+        public HospitalContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            optionsBuilder

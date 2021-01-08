@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 
 namespace Hospital.Repository
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private HospitalContext context;
         private AppointmentRepository appointment;
 
         private bool disposed = false;
+        public UnitOfWork()
+        {
+        }
 
         public UnitOfWork(HospitalContext hospitalContext)
         {
@@ -30,6 +33,7 @@ namespace Hospital.Repository
                 return appointment;
             }
         }
+
         public void Save()
         {
             context.SaveChanges();
@@ -46,10 +50,12 @@ namespace Hospital.Repository
             }
             this.disposed = true;
         }
+
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
     }
 }
