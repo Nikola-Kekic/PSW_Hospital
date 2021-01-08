@@ -12,5 +12,10 @@ namespace Hospital.Model
         public Doctor Doctor { get; set; }
         public Patient Patient { get; set; }
 
+        // if there's no patient for this appointment, then it's free
+        public bool IsFree()
+        {
+            return Patient == null;
+        }
     }
 }

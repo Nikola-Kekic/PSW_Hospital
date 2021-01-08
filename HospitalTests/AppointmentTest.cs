@@ -12,6 +12,7 @@ using Xunit;
 using Moq;
 using Hospital.Controller;
 using Microsoft.AspNetCore.Mvc;
+using Hospital.Service;
 
 namespace HospitalTests
 {
@@ -21,15 +22,16 @@ namespace HospitalTests
 
         private AppointmentController _appointmentController;
         private Mock<IUnitOfWork> _mockRepository;
-        private IList<Appointment> _freeAppointments;
-
+        private Mock<IAppointmentService> _mockService;
+        public IList<Appointment> _freeAppointments { get; set; }
 
         public AppointmentTest()
         {
             Seed();
 
             _mockRepository = new Mock<IUnitOfWork>();
-            _appointmentController = new AppointmentController(_mockRepository.Object);
+            _mockService = new Mock<IAppointmentService>();
+            _appointmentController = new AppointmentController(_mockRepository.Object, _mockService.Object);
 
         }
 
@@ -52,8 +54,37 @@ namespace HospitalTests
             };
         }
 
+        public static IEnumerable<object[]> Data =>
+        new List<object[]>
+        {
+             new object[]
+             {
+                 new Appointment {
+                     StartTime = DateTime.Parse("1/9/2021 9:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
+                     Doctor = new Doctor{ FirstName = "Marko", LastName = "Markovic", Specialization = Specialization.CARDIOLOGY, Id = 1},
+                     Patient = null,
+                     Id = 1
+             }, true},
+              new object[]
+             {
+                 new Appointment {
+                    StartTime = DateTime.Parse("1/5/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
+                    Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 2},
+                    Patient = new Patient{ FirstName = "Petar", LastName = "Peric", Id = 1},
+                    Id = 3
+             }, false}
+        };
+
+        [Theory]
+        [MemberData(nameof(Data))]
+        public void Checks_if_free_term(Appointment appointment, bool expected)
+        {
+            bool isFree = appointment.IsFree();
+            Assert.Equal(expected, isFree);
+        }
+        
+
         [Fact]
-        //[MemberData(nameof(Data))]
         public void Checks_free_appointments_for_doctor()
         {
             // arrange
@@ -61,7 +92,8 @@ namespace HospitalTests
             {
                 DoctorId = 1,
                 From = DateTime.Parse("1/8/2021 8:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
-                To = DateTime.Parse("1/10/2021 2:00:00 PM", System.Globalization.CultureInfo.InvariantCulture)
+                To = DateTime.Parse("1/10/2021 2:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
+                DoctorIsPriority = true
             };
 
             // act
@@ -69,11 +101,15 @@ namespace HospitalTests
                 a.Appointment.GetFreeAppointmentsForDoctor(appointmentRequest.From, appointmentRequest.To, appointmentRequest.DoctorId))
                 .Returns(_freeAppointments);
 
-            ActionResult result = _appointmentController.GetAppointmentsForDoctor(appointmentRequest);
+            
+            IActionResult actionResult = _appointmentController.GetAppointmentsForDoctor(appointmentRequest);
+            var okResult = actionResult as OkObjectResult;
+            var resultList = okResult.Value;
 
             // assert
-            Assert.NotNull(result);
-            Assert.Equal(_freeAppointments, ((ViewResult)result).Model);
+            Assert.NotNull(okResult);
+            
+            Assert.Equal(_freeAppointments, resultList);
 
         }
 
