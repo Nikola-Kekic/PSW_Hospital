@@ -6,6 +6,7 @@ using Hospital.Context;
 using Hospital.Repository;
 using Hospital.Repository.Interfaces;
 using Hospital.Service;
+using Hospital.Service.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,8 +20,10 @@ namespace Hospital
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<HospitalContext>();
-            
+
             services.AddScoped<IAppointmentService, AppointmentService>();
+            
+            services.AddScoped<IDoctorService, DoctorService>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

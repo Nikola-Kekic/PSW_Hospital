@@ -13,6 +13,7 @@ using Moq;
 using Hospital.Controller;
 using Microsoft.AspNetCore.Mvc;
 using Hospital.Service;
+using System.Linq;
 
 namespace HospitalTests
 {
@@ -29,8 +30,8 @@ namespace HospitalTests
         private static AppointmentRequestDto _appointmentRequest => new AppointmentRequestDto
         {
             DoctorId = 1,
-            From = DateTime.Parse("1/8/2021 8:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
-            To = DateTime.Parse("1/10/2021 2:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
+            From = DateTime.Parse("1/10/2021 8:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
+            To = DateTime.Parse("1/13/2021 2:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
             DoctorIsPriority = true
         };
 
@@ -39,13 +40,13 @@ namespace HospitalTests
         {
             new Appointment {
                 StartTime = DateTime.Parse("1/9/2021 9:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
-                Doctor = new Doctor{ FirstName = "Marko", LastName = "Markovic", Specialization = Specialization.CARDIOLOGY, Id = 1},
+                Doctor = new Doctor{ FirstName = "Marko", LastName = "Markovic", Specialization = Specialization.CARDIOLOGY, Id = 2},
                 Patient = null,
                 Id = 1
             },
             new Appointment {
                 StartTime = DateTime.Parse("1/12/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
-                Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 2},
+                Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 3},
                 Patient = null,
                 Id = 2
             } 
@@ -55,7 +56,7 @@ namespace HospitalTests
         {
             new Appointment {
                 StartTime = DateTime.Parse("1/10/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
-                Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 2},
+                Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 3},
                 Patient = new Patient{ FirstName = "Petar", LastName = "Peric", Id = 1},
                 Id = 3
             }
@@ -117,24 +118,26 @@ namespace HospitalTests
         [Fact]
         public void Checks_free_appointments_for_doctor()
         {
-            // arrange
-           
+            var allAppointments = _freeAppointments.Concat(_takenAppointments).ToList();
+            var freeForThirdDoctor = _freeAppointments.Where(x => x.Doctor.Id.Equals(3)).ToList();
 
-            // act
-            _mockRepository.Setup(a => 
+            _mockRepository.Setup(a =>
                 a.Appointment.GetAppointmentsForDoctor(_appointmentRequest.DoctorId))
-                .Returns(_freeAppointments);
+                .Returns(allAppointments.Where(x => x.Doctor.Id.Equals(3)).ToList());
 
+
+            //IActionResult actionResult = _appointmentController.GetAppointmentsForDoctor(_appointmentRequest);
+            //var okResult = actionResult as OkObjectResult;
+            //var resultList = okResult.Value;
+
+            //Assert.NotNull(okResult);
+            //Assert.Equal(_freeAppointments, resultList);
+
+            var result = _appointmentService.GetAppointmentRecommendations(_appointmentRequest);
             
-            IActionResult actionResult = _appointmentController.GetAppointmentsForDoctor(_appointmentRequest);
-            var okResult = actionResult as OkObjectResult;
-            var resultList = okResult.Value;
-
-            // assert
-            Assert.NotNull(okResult);
-            
-            Assert.Equal(_freeAppointments, resultList);
-
+            Assert.NotNull(result);
+            Assert.Equal(freeForThirdDoctor.Count, result.ToList().Count);
+            Assert.Collection(freeForThirdDoctor, a1 => Assert.Equal(result.ElementAt(0).Id, a1.Id));
         }
 
     }

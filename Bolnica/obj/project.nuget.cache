@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+gOHUdV4ZszIYAgF/ow0a+qOoh/scb6aJzUOwRRdMFawDsFCkPR17WWzW6t4VPANAU/4SllTUKI73kNwkRexog==",
+  "dgSpecHash": "eYXoZZbxHyTwG8RicVjlrmiUb99WV/0eLFHBnqMdGcOP3byd+x2+GvHBi9pIG56NhU4T71W9QoZxBvi0v633ng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj",
+  "projectFilePath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

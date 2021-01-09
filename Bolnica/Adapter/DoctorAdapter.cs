@@ -12,6 +12,10 @@ namespace Hospital.Adapter
         public static Doctor DoctorDtoToDoctor(DoctorDto dto)
         {
             Doctor doctor = new Doctor();
+
+            if (doctor.Id != 0)
+                doctor.Id = dto.Id;
+
             doctor.FirstName = dto.FirstName;
             doctor.LastName = dto.LastName;
             doctor.Specialization = dto.Specialization;

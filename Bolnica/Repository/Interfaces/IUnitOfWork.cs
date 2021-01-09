@@ -8,6 +8,7 @@ namespace Hospital.Repository.Interfaces
     public interface IUnitOfWork
     {
         IAppointmentRepository Appointment { get; }
+        IDoctorRepository Doctor { get; }
         void Save();
     }
 }

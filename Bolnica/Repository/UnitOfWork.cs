@@ -11,6 +11,7 @@ namespace Hospital.Repository
     {
         private HospitalContext context;
         private AppointmentRepository appointment;
+        private DoctorRepository doctor;
 
         private bool disposed = false;
         public UnitOfWork()
@@ -31,6 +32,17 @@ namespace Hospital.Repository
                     appointment = new AppointmentRepository(context);
                 }
                 return appointment;
+            }
+        }
+        public IDoctorRepository Doctor
+        {
+            get
+            {
+                if (doctor == null)
+                {
+                    doctor = new DoctorRepository(context);
+                }
+                return doctor;
             }
         }
 

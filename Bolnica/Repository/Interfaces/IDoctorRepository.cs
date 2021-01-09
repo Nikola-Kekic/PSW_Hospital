@@ -8,9 +8,9 @@ namespace Hospital.Repository.Interfaces
 {
     public interface IDoctorRepository : IRepositoryBase<Doctor>
     {
-        IEnumerable<Doctor> GetAllDoctorsAsync();
-        Doctor GetDoctorByIdAsync(long Id);
-        Doctor GetDoctorWithDetailsAsync(long Id);
+        IEnumerable<Doctor> GetAllDoctors();
+        Doctor GetDoctorById(long Id);
+        Doctor GetDoctorWithDetails(long Id);
         void DeleteDoctor(Doctor doctor);
     }
 }

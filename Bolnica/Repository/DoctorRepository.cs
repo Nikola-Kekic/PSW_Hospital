@@ -14,20 +14,20 @@ namespace Hospital.Repository
         {
         }
 
-        public IEnumerable<Doctor> GetAllDoctorsAsync()
+        public IEnumerable<Doctor> GetAllDoctors()
         {
             return FindAll()
                 .OrderBy(a => a.Id)
                 .ToList();
         }
 
-        public Doctor GetDoctorByIdAsync(long Id)
+        public Doctor GetDoctorById(long Id)
         {
             return FindByCondition(t => t.Id.Equals(Id))
                 .FirstOrDefault();
         }
 
-        public Doctor GetDoctorWithDetailsAsync(long Id)
+        public Doctor GetDoctorWithDetails(long Id)
         {
             return FindByCondition(a => a.Id.Equals(Id))
                 .FirstOrDefault();

@@ -1,4 +1,5 @@
-﻿using Hospital.Dto;
+﻿using Hospital.Adapter;
+using Hospital.Dto;
 using Hospital.Model;
 using Hospital.Repository;
 using Hospital.Repository.Interfaces;
@@ -28,6 +29,31 @@ namespace Hospital.Controller
         public ActionResult GetAppointments()
         {
             return Ok(_unitOfWork.Appointment.GetAllAppointments().ToList());
+        }
+
+        // GET: api/Appointment/5
+        [HttpGet("{id}")]
+        public ActionResult GetAppointment(long id)
+        {
+            var appointment = _appointmentService.GetAppointment(id);
+
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(appointment);
+        }
+
+        // POST: api/Appointment
+        [HttpPost]
+        public ActionResult CreateFreeAppointment(AppointmentDto dto)
+        {
+            Appointment appointment = AppointmentAdapter.AppointmentDtoToAppointment(dto);
+
+            appointment = _appointmentService.CreateAppointment(appointment);
+
+            return CreatedAtAction(nameof(GetAppointment), new { id = appointment.Id }, appointment);
         }
 
         // POST: api/Appointment/period

@@ -7777,11 +7777,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj",
+      "projectUniqueName": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj",
       "projectName": "HospitalTests",
-      "projectPath": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj",
+      "projectPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\HospitalTests.csproj",
       "packagesPath": "C:\\Users\\Dedo iz Njemačke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\obj\\",
+      "outputPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\HospitalTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dedo iz Njemačke\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7797,8 +7797,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj": {
-              "projectPath": "C:\\Users\\Dedo iz Njemačke\\source\\repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj"
+            "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj": {
+              "projectPath": "C:\\Users\\Dedo iz Njemačke\\Source\\Repos\\Nikola-Kekic\\PSW_Hospital\\Bolnica\\Hospital.csproj"
             }
           }
         }

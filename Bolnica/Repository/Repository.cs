@@ -25,9 +25,10 @@ namespace Hospital.Repository
             return this.Context.Set<T>().Where(expression);
         }
 
-        public void Create(T entity)
+        public T Create(T entity)
         {
             this.Context.Set<T>().Add(entity);
+            return entity;
         }
         public void Update(T entity)
         {

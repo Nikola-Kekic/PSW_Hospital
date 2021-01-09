@@ -21,8 +21,8 @@ namespace Hospital.Service
         {
             List<Appointment> freeAppointments = new List<Appointment>();
 
-            var appointments = _unitOfWork.Appointment.GetAppointmentsForDoctor(dto.DoctorId);
-            
+            var appointments = _unitOfWork.Appointment.GetAppointmentsForDoctor(dto.DoctorId).ToList();
+
             foreach(Appointment a in appointments)
             {
                 if (a.IsFree() && isAppointemntInPeriod(a, dto.From, dto.To))
@@ -34,10 +34,24 @@ namespace Hospital.Service
             return freeAppointments;
         }
 
+        public Appointment GetAppointment(long id)
+        {
+            return _unitOfWork.Appointment.GetAppointmentById(id);
+        }
+
+        public Appointment CreateAppointment(Appointment appointment)
+        {
+            var retVal = _unitOfWork.Appointment.Create(appointment);
+            _unitOfWork.Save();
+            return retVal;
+        }
+
+
         // da li je bolje ovo u repozitorijumu
         public bool isAppointemntInPeriod(Appointment a, DateTime start, DateTime end)
         {
             return a.StartTime > start && a.StartTime < end;
         }
+
     }
 }
