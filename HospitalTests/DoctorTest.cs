@@ -1,5 +1,6 @@
 ﻿using Hospital.Context;
 using Hospital.Controller;
+using Hospital.Dto;
 using Hospital.Model;
 using Hospital.Repository;
 using Hospital.Repository.Interfaces;
@@ -25,31 +26,35 @@ namespace HospitalTests
         {
             _mockRepository = new Mock<IUnitOfWork>();
             _mockService = new Mock<IDoctorService>();
-            _doctorController = new DoctorController(_mockService.Object);
+            //_doctorController = new DoctorController(_mockService.Object);
 
+            HospitalContext context = new HospitalContext();
+            UnitOfWork unitOfWork = new UnitOfWork(context);
+            DoctorService doctorService = new DoctorService(unitOfWork);
+            _doctorController = new DoctorController(doctorService);
         }
 
         // fails because of mock objects
         [Fact]
-        public void Checks_find_doctor_by_id()
+        public void Checks_create_doctor()
         {
             // arrange
-            var doctor = new Doctor
+            var doctorDto = new DoctorDto
             {
-                Id = 2,
-                FirstName = "Marko",
+                Id = 4,
+                FirstName = "Mario",
                 LastName = "Markovic",
-                Specialization = Specialization.CARDIOLOGY
+                Specialization = Specialization.GYNECOLOGY
             };
 
-            // act
-            IActionResult actionResult = _doctorController.GetDoctor(doctor.Id);
-            var okResult = actionResult as OkObjectResult;
-            Doctor doctorResult = okResult.Value as Doctor;
+            ActionResult actionResult = _doctorController.CreateDoctor(doctorDto);
 
-            // assert
-            Assert.NotNull(okResult);
-            Assert.True(doctorResult.FirstName == doctor.FirstName);
+            Doctor doctorResult = (actionResult as CreatedAtActionResult).Value as Doctor;
+
+            Assert.NotNull(actionResult);
+            Assert.True(doctorResult.FirstName == doctorDto.FirstName);
+            Assert.True(doctorResult.LastName == doctorDto.LastName);
+            Assert.True(doctorResult.Specialization == doctorDto.Specialization);
         }
     }
 }

@@ -23,12 +23,22 @@ namespace Hospital.Context
 
         public HospitalContext()
         {
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder
+            try
+            {
+                optionsBuilder
                 .UseSqlServer(Configuration["ConnectionStrings:HospitalConnection"]);
+            } catch(Exception e)
+            {
+                // a database only in case of testing
+                Console.WriteLine(e.Message);
+                optionsBuilder
+                .UseSqlServer("Data Source=DESKTOP-SUEUN9H;Initial Catalog=HospitalTest;MultipleActiveResultSets=true;Integrated Security=True");
+            }
             
         }
     }

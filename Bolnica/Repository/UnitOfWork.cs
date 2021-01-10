@@ -14,9 +14,6 @@ namespace Hospital.Repository
         private DoctorRepository doctor;
 
         private bool disposed = false;
-        public UnitOfWork()
-        {
-        }
 
         public UnitOfWork(HospitalContext hospitalContext)
         {

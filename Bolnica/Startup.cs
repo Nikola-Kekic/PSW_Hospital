@@ -21,8 +21,8 @@ namespace Hospital
         {
             services.AddDbContext<HospitalContext>();
 
+            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
-            
             services.AddScoped<IDoctorService, DoctorService>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
