@@ -9,6 +9,7 @@ namespace Hospital.Repository.Interfaces
     {
         IAppointmentRepository Appointment { get; }
         IDoctorRepository Doctor { get; }
+        IPatientRepository Patient { get; }
         void Save();
     }
 }

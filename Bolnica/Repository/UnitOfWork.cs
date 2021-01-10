@@ -12,6 +12,7 @@ namespace Hospital.Repository
         private HospitalContext context;
         private AppointmentRepository appointment;
         private DoctorRepository doctor;
+        private PatientRepository patient;
 
         private bool disposed = false;
 
@@ -40,6 +41,18 @@ namespace Hospital.Repository
                     doctor = new DoctorRepository(context);
                 }
                 return doctor;
+            }
+        }
+
+        public IPatientRepository Patient
+        {
+            get
+            {
+                if (patient == null)
+                {
+                    patient = new PatientRepository(context);
+                }
+                return patient;
             }
         }
 

@@ -92,5 +92,12 @@ C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\De
 C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\obj\Debug\netcoreapp3.1\Hospital.csproj.CoreCompileInputs.cache
-C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\obj\Debug\netcoreapp3.1\Hospital.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.Owin.dll
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Owin.dll
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.dll
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.Owin.Cors.dll
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\obj\Debug\netcoreapp3.1\Hospital.csproj.CoreCompileInputs.cache
+C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\obj\Debug\netcoreapp3.1\Hospital.MvcApplicationPartsAssemblyInfo.cache

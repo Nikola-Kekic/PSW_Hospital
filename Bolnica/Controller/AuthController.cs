@@ -24,8 +24,11 @@ namespace Hospital.Controller
         {
 
             string token = _authService.GetToken(loginRequest);
+            
+            if(token != null)
+                return Ok(token);
 
-            return Ok(token);
+            return BadRequest();
         }
 
         // POST: api/Auth/register

@@ -19,7 +19,20 @@ namespace Hospital.Service
 
         public string GetToken(LoginRequest loginRequest)
         {
-            return "token";
+            Patient patient = ValidateUser(loginRequest.Email, loginRequest.Password);
+
+            if(patient != null)
+                return "token";
+
+            return null;
+        }
+
+        public Patient ValidateUser(string email, string password)
+        {
+            var list = _unitOfWork.Patient.GetAllPatients();
+            return _unitOfWork.Patient.GetAllPatients().FirstOrDefault(user =>
+                user.Email.Equals(email, StringComparison.OrdinalIgnoreCase)
+                && user.Password == password);
         }
 
         public Patient Register(Patient patient)
