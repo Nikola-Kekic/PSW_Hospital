@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hospital.Service.Interfaces
 {
-    interface IPatientService
+    public interface IPatientService
     {
         public IEnumerable<Patient> GetAllPatients();
         public Patient GetPatient(long id);

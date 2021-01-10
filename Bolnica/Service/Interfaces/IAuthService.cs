@@ -9,6 +9,8 @@ namespace Hospital.Service.Interfaces
     public interface IAuthService
     {
         string GetToken(LoginRequest loginRequest);
+        string CreateToken(Patient user);
         Patient Register(Patient patient);
+        string ValidateUser(string email, string password);
     }
 }
