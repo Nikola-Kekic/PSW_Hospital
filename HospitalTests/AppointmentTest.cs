@@ -41,13 +41,13 @@ namespace HospitalTests
             new Appointment {
                 StartTime = DateTime.Parse("1/9/2021 9:30:00 AM", System.Globalization.CultureInfo.InvariantCulture),
                 Doctor = new Doctor{ FirstName = "Marko", LastName = "Markovic", Specialization = Specialization.CARDIOLOGY, Id = 2},
-                Patient = null,
+                User = null,
                 Id = 1
             },
             new Appointment {
                 StartTime = DateTime.Parse("1/12/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
                 Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 3},
-                Patient = null,
+                User = null,
                 Id = 2
             } 
         };
@@ -57,7 +57,7 @@ namespace HospitalTests
             new Appointment {
                 StartTime = DateTime.Parse("1/10/2021 3:00:00 PM", System.Globalization.CultureInfo.InvariantCulture),
                 Doctor = new Doctor{ FirstName = "Marina", LastName = "Markovic", Specialization = Specialization.GENERAL_PRACTICE, Id = 3},
-                Patient = new Patient{ FirstName = "Petar", LastName = "Peric", Id = 1},
+                User = new User{ FirstName = "Petar", LastName = "Peric", Id = 1},
                 Id = 3
             }
         };

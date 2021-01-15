@@ -12,7 +12,7 @@ namespace Hospital.Repository
         private HospitalContext context;
         private AppointmentRepository appointment;
         private DoctorRepository doctor;
-        private PatientRepository patient;
+        private UserRepository user;
 
         private bool disposed = false;
 
@@ -44,15 +44,15 @@ namespace Hospital.Repository
             }
         }
 
-        public IPatientRepository Patient
+        public IUserRepository User
         {
             get
             {
-                if (patient == null)
+                if (user == null)
                 {
-                    patient = new PatientRepository(context);
+                    user = new UserRepository(context);
                 }
-                return patient;
+                return user;
             }
         }
 

@@ -2,6 +2,7 @@
 using Hospital.Dto;
 using Hospital.Model;
 using Hospital.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hospital.Controller
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DoctorController : ControllerBase
@@ -25,7 +27,14 @@ namespace Hospital.Controller
         [HttpGet]
         public ActionResult GetDoctors()
         {
-            return Ok(_doctorService.GetAllDoctors().ToList());
+            List<DoctorDto> dtos = new List<DoctorDto>();
+            List<Doctor> doctors = _doctorService.GetAllDoctors().ToList();
+
+            foreach(Doctor d in doctors)
+            {
+                dtos.Add(DoctorAdapter.DoctorToDoctorDto(d));
+            }
+            return Ok(dtos);
         }
 
         // GET: api/Doctor/5

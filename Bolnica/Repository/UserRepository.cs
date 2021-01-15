@@ -8,32 +8,32 @@ using System.Threading.Tasks;
 
 namespace Hospital.Repository
 {
-    public class PatientRepository : Repository<Patient>, IPatientRepository
+    public class UserRepository : Repository<User>, IUserRepository
     {
-        public PatientRepository(HospitalContext context) : base(context)
+        public UserRepository(HospitalContext context) : base(context)
         {
         }
 
-        public IEnumerable<Patient> GetAllPatients()
+        public IEnumerable<User> GetAllUsers()
         {
             return FindAll()
                 .OrderBy(a => a.Id)
                 .ToList();
         }
 
-        public Patient GetPatientById(long Id)
+        public User GetUserById(long Id)
         {
             return FindByCondition(t => t.Id.Equals(Id))
                 .FirstOrDefault();
         }
 
-        public Patient GetPatientWithDetails(long Id)
+        public User GetUserWithDetails(long Id)
         {
             return FindByCondition(a => a.Id.Equals(Id))
                 .FirstOrDefault();
         }
 
-        public void DeletePatient(Patient patient)
+        public void DeleteUser(User patient)
         {
             Delete(patient);
         }

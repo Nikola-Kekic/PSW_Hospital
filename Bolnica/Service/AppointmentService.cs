@@ -17,6 +17,18 @@ namespace Hospital.Service
             _unitOfWork = unitOfWork;
         }
 
+        public IEnumerable<Appointment> GetAppointments()
+        {
+            List<Appointment> appointments = _unitOfWork.Appointment.GetAllAppointments().ToList();
+
+            foreach(Appointment a in appointments)
+            {
+               // a.Doctor = _unitOfWork.Doctor.GetDoctorById(a.)
+            }
+
+            return appointments;
+        }
+
         public IEnumerable<Appointment> GetAppointmentRecommendations(AppointmentRequestDto dto)
         {
             List<Appointment> freeAppointments = new List<Appointment>();
@@ -39,8 +51,9 @@ namespace Hospital.Service
             return _unitOfWork.Appointment.GetAppointmentById(id);
         }
 
-        public Appointment CreateAppointment(Appointment appointment)
+        public Appointment CreateAppointment(Appointment appointment, Doctor doctor)
         {
+            appointment.Doctor = doctor;
             var retVal = _unitOfWork.Appointment.Create(appointment);
             _unitOfWork.Save();
             return retVal;

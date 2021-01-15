@@ -9,6 +9,6 @@ namespace Hospital.Dto
     {
         public DateTime StartTime { get; set; }
         public DoctorDto Doctor { get; set; }
-        public PatientDto Patient { get; set; }
+        public UserDto User { get; set; }
     }
 }

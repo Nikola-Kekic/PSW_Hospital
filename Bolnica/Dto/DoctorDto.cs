@@ -12,6 +12,7 @@ namespace Hospital.Dto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Specialization Specialization { get; set; }
+        public string SpecializationString { get; set; }
         public DoctorDto() { }
     }
 }

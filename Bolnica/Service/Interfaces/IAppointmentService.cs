@@ -8,9 +8,10 @@ namespace Hospital.Service
 {
     public interface IAppointmentService
     {
+        IEnumerable<Appointment> GetAppointments();
         IEnumerable<Appointment> GetAppointmentRecommendations(AppointmentRequestDto dto);
         public Appointment GetAppointment(long id);
-        Appointment CreateAppointment(Appointment appointment);
+        Appointment CreateAppointment(Appointment appointment, Doctor doctor);
         bool isAppointemntInPeriod(Appointment a, DateTime start, DateTime end);
     }
 }

@@ -18,7 +18,7 @@ namespace Hospital.Service
         }
         public IEnumerable<Doctor> GetAllDoctors()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Doctor.GetAllDoctors();
         }
 
         public Doctor GetDoctor(long id)
@@ -38,7 +38,13 @@ namespace Hospital.Service
         {
             var doctor = _unitOfWork.Doctor.GetDoctorById(id);
             
-            if(doctor != null)
+            // if there are appointments with this doctor, delete them too
+            foreach (Appointment a in _unitOfWork.Appointment.FindByCondition(x => x.Doctor.Id.Equals(id)))
+            {
+                _unitOfWork.Appointment.Delete(a);
+            }
+            
+            if (doctor != null)
                 _unitOfWork.Doctor.Delete(doctor);
             
             _unitOfWork.Save();

@@ -2,6 +2,7 @@
 using Hospital.Dto;
 using Hospital.Model;
 using Hospital.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital.Controller
@@ -23,10 +24,13 @@ namespace Hospital.Controller
         public ActionResult Login(LoginRequest loginRequest)
         {
 
-            string token = _authService.GetToken(loginRequest);
+            AuthResponseDto response = _authService.GetToken(loginRequest);
             
-            if(token != null)
-                return Ok(token);
+            if(response != null)
+            {
+                return Ok(response);
+
+            }
 
             return BadRequest();
         }
@@ -34,13 +38,17 @@ namespace Hospital.Controller
         // POST: api/Auth/register
         [HttpPost]
         [Route("register")]
-        public ActionResult Register(PatientDto dto)
+        public ActionResult Register(UserDto dto)
         {
-            Patient patient = PatientAdapter.PatientDtoToPatient(dto);
+            User user = UserAdapter.UserDtoToUser(dto);
 
-            patient = _authService.Register(patient);
+            user = _authService.Register(user);
 
-            return Ok(patient);
+            if(user != null)
+                return Ok(user);
+            else
+                // already exists code
+                return StatusCode(409);
         }
     }
 }

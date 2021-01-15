@@ -7,7 +7,7 @@ namespace Hospital.Model
 {
     public enum Role
     {
-        USER,
+        PATIENT,
         ADMIN
     }
 }

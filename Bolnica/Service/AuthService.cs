@@ -1,4 +1,5 @@
-﻿using Hospital.Model;
+﻿using Hospital.Dto;
+using Hospital.Model;
 using Hospital.Repository.Interfaces;
 using Hospital.Service.Interfaces;
 using Microsoft.Exchange.WebServices.Data;
@@ -25,14 +26,14 @@ namespace Hospital.Service
             _configuration = configuration;
         }
 
-        public string GetToken(LoginRequest loginRequest)
+        public AuthResponseDto GetToken(LoginRequest loginRequest)
         {
-            string token = ValidateUser(loginRequest.Email, loginRequest.Password);
+            AuthResponseDto response = ValidateUser(loginRequest.Email, loginRequest.Password);
 
-            return token;
+            return response;
         }
 
-        public string CreateToken(Patient user)
+        public string CreateToken(User user)
         {
             List<Claim> claims = new List<Claim>
             {
@@ -59,29 +60,37 @@ namespace Hospital.Service
             return tokenHandler.WriteToken(token);
         }
 
-        public string ValidateUser(string email, string password)
+        public AuthResponseDto ValidateUser(string email, string password)
         {
-            string response = "";
-            
-            Patient user = _unitOfWork.Patient.GetAllPatients().FirstOrDefault(user =>
+            AuthResponseDto response = null;
+
+            User user = _unitOfWork.User.GetAllUsers().FirstOrDefault(user =>
                 user.Email.Equals(email, StringComparison.OrdinalIgnoreCase)
                 && user.Password == password);
 
-            if (user == null)
+            if (user != null)
             {
-                response = null;
-            }
-            else
-            {
-                response = CreateToken(user);
+                string token = CreateToken(user);
+                response = new AuthResponseDto { Role = user.Role.ToString(), Token = token };
             }
 
             return response;
         }
 
-        public Patient Register(Patient patient)
+        public User Register(User user)
         {
-            throw new NotImplementedException();
+            User retVal = null;
+
+            User existingUser = _unitOfWork.User.FindByCondition(x => x.Email.Equals(user.Email)).FirstOrDefault();
+            // user exists => return error
+
+            if (existingUser == null)
+            {
+                retVal = _unitOfWork.User.Create(user);
+                _unitOfWork.Save();
+            }
+
+            return retVal;
         }
     }
 }

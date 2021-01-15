@@ -105,5 +105,9 @@ C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\De
 C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.Exchange.WebServices.Auth.dll
 C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.Exchange.WebServices.dll
 C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\obj\Debug\netcoreapp3.1\Hospital.csproj.CoreCompileInputs.cache
-C:\Users\Dedo iz Njemačke\source\repos\Nikola-Kekic\PSW_Hospital\Bolnica\obj\Debug\netcoreapp3.1\Hospital.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\obj\Debug\netcoreapp3.1\Hospital.csproj.CoreCompileInputs.cache
+C:\Users\Dedo iz Njemačke\Source\Repos\Nikola-Kekic\PSW_Hospital\Bolnica\obj\Debug\netcoreapp3.1\Hospital.MvcApplicationPartsAssemblyInfo.cache

@@ -4,6 +4,7 @@ using Hospital.Model;
 using Hospital.Repository;
 using Hospital.Repository.Interfaces;
 using Hospital.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Hospital.Controller
 {
+    [Authorize(Roles = "PATIENT, ADMIN")]
     [Route("api/[controller]")]
     [ApiController]
     public class AppointmentController : ControllerBase
@@ -28,7 +30,7 @@ namespace Hospital.Controller
         [HttpGet]
         public ActionResult GetAppointments()
         {
-            return Ok(_unitOfWork.Appointment.GetAllAppointments().ToList());
+            return Ok(_appointmentService.GetAppointments());
         }
 
         // GET: api/Appointment/5
@@ -50,8 +52,15 @@ namespace Hospital.Controller
         public ActionResult CreateFreeAppointment(AppointmentDto dto)
         {
             Appointment appointment = AppointmentAdapter.AppointmentDtoToAppointment(dto);
+            
+            Doctor doctor = null;
+            
+            if(appointment.Doctor.Id == 0)
+            {
+                doctor = _unitOfWork.Doctor.GetDoctorById(dto.Doctor.Id);
+            }
 
-            appointment = _appointmentService.CreateAppointment(appointment);
+            appointment = _appointmentService.CreateAppointment(appointment, doctor);
 
             return CreatedAtAction(nameof(GetAppointment), new { id = appointment.Id }, appointment);
         }

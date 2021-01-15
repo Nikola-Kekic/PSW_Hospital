@@ -3,6 +3,7 @@ using Hospital.Model;
 using Hospital.Repository.Interfaces;
 using Hospital.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,14 @@ namespace HospitalTests
         private AuthController _authController;
         private AuthService _authService;
 
-        public AuthTest()
+        private IConfiguration _configuration;
+
+        public AuthTest(IConfiguration Configuration)
         {
+            _configuration = Configuration;
+
             _mockRepository = new Mock<IUnitOfWork>();
-            _authService = new AuthService(_mockRepository.Object);
+            _authService = new AuthService(_mockRepository.Object, _configuration);
             _authController = new AuthController(_authService);
         }
 
@@ -33,11 +38,11 @@ namespace HospitalTests
                 Password = "pass123"
             };
 
-            Patient existing = new Patient { Email = "test@test.rs", Password = "pass123" };
-            List<Patient> mockDatabase = new List<Patient>();
+            User existing = new User { Email = "test@test.rs", Password = "pass123" };
+            List<User> mockDatabase = new List<User>();
             mockDatabase.Add(existing);
 
-            _mockRepository.Setup(a => a.Patient.GetAllPatients()).Returns(mockDatabase);
+            _mockRepository.Setup(a => a.User.GetAllUsers()).Returns(mockDatabase);
 
             OkObjectResult okResult = _authController.Login(loginRequest) as OkObjectResult;
 
@@ -57,7 +62,7 @@ namespace HospitalTests
                 Password = "pass123"
             };
             
-            _mockRepository.Setup(a =>  a.Patient.GetAllPatients()).Returns(new List<Patient>());
+            _mockRepository.Setup(a =>  a.User.GetAllUsers()).Returns(new List<User>());
 
             var result = _authController.Login(loginRequest);
 
